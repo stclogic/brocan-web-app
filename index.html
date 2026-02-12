@@ -1,89 +1,456 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="ko" class="dark">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/12.9.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/12.9.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/12.9.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/12.9.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/12.9.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/12.9.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/12.9.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/12.9.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/12.9.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/12.9.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Brocan - 브로 캉가자!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --border-color: #e5e7eb;
+            --header-bg: rgba(255, 255, 255, 0.8);
         }
-      });
+
+        .dark {
+            --bg-color: #000000;
+            --text-color: #ffffff;
+            --border-color: #262626;
+            --header-bg: rgba(0, 0, 0, 0.8);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .logo-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Hide scrollbar but keep functionality */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .glass-header {
+            background-color: var(--header-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-divider {
+            height: 0.5px;
+            background-color: rgba(255, 255, 255, 0.2);
+            width: 100%;
+            position: fixed;
+            bottom: 64px;
+            z-index: 40;
+        }
+
+        .light .nav-divider {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .bottom-nav {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .nav-hidden {
+            transform: translateY(100%);
+        }
+
+        .verified-badge {
+            background-color: #1d9bf0;
+            border-radius: 50%;
+            width: 14px;
+            height: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 4px;
+        }
+
+        /* Sidebar Transition */
+        #sidebar {
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#000000',
+                            white: '#FFFFFF',
+                        }
+                    }
+                }
+            }
+        }
     </script>
-  </body>
+</head>
+
+<body class="min-h-screen">
+
+    <!-- Header Dropdown Menu -->
+    <div id="header-dropdown"
+        class="fixed top-16 left-4 w-56 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-2xl z-[60] opacity-0 scale-95 pointer-events-none transition-all duration-200 origin-top-left">
+        <div id="dropdown-user-section" class="px-4 py-3 border-b border-zinc-100 dark:border-zinc-800 mb-1 hidden">
+            <div class="flex items-center space-x-3">
+                <img id="dropdown-user-photo" src="" alt="User" class="w-8 h-8 rounded-full bg-zinc-200">
+                <div class="flex flex-col">
+                    <span id="dropdown-user-name"
+                        class="text-sm font-bold text-zinc-900 dark:text-white truncate max-w-[120px]">User Name</span>
+                    <span id="dropdown-user-email"
+                        class="text-[10px] text-zinc-500 truncate max-w-[120px]">email@example.com</span>
+                </div>
+            </div>
+        </div>
+        <div class="p-2 flex flex-col">
+            <button id="login-btn" onclick="loginWithGoogle()"
+                class="px-4 py-3 text-sm font-bold text-brand-black bg-zinc-100 hover:bg-zinc-200 rounded-xl transition mb-2 flex items-center justify-center space-x-2">
+                <i data-lucide="log-in" class="w-4 h-4"></i>
+                <span>Login with Google</span>
+            </button>
+            <a href="#"
+                class="px-4 py-3 text-sm font-medium text-zinc-900 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-xl transition">Service
+                Info</a>
+            <a href="#"
+                class="px-4 py-3 text-sm font-medium text-zinc-900 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-xl transition"
+                onclick="showLegal('Terms Info')">Terms Info</a>
+            <a href="#"
+                class="px-4 py-3 text-sm font-medium text-zinc-900 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-xl transition">Ad
+                Policy</a>
+            <a href="#"
+                class="px-4 py-3 text-sm font-medium text-zinc-900 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-xl transition">Privacy
+                Policy</a>
+            <a href="#"
+                class="px-4 py-3 text-sm font-medium text-zinc-900 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-xl transition">Contact
+                Us</a>
+            <button id="logout-btn" onclick="logout()"
+                class="px-4 py-3 text-sm font-medium text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl transition mt-1 hidden text-left">
+                Logout
+            </button>
+        </div>
+    </div>
+
+    <!-- Sticky Header -->
+    <header class="fixed top-0 left-0 right-0 h-16 glass-header flex items-center justify-between px-4 z-40">
+        <div class="flex items-center space-x-4">
+            <button onclick="toggleDropdown(event)" class="p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div class="absolute left-1/2 -translate-x-1/2">
+            <h1 class="logo-font text-3xl font-bold">Brocan</h1>
+        </div>
+
+        <div class="flex items-center space-x-2">
+            <a href="https://lingua-live.netlify.app/" target="_blank" class="p-2">
+                <i data-lucide="globe" class="w-6 h-6"></i>
+            </a>
+            <button onclick="toggleTheme()" id="theme-btn" class="p-2">
+                <i data-lucide="moon" class="w-6 h-6 hidden dark:block"></i>
+                <i data-lucide="sun" class="w-6 h-6 block dark:hidden"></i>
+            </button>
+            <div class="relative p-2">
+                <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                <span
+                    class="absolute top-1 right-1 bg-red-600 text-[10px] text-white font-bold px-1 rounded-full border border-black group-dark:border-white">3</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Feed -->
+    <main class="pt-20 pb-24 px-4 max-w-lg mx-auto">
+
+        <!-- Post 1 -->
+        <article class="py-4 border-b border-zinc-200 dark:border-zinc-800">
+            <div class="flex space-x-3">
+                <div class="flex-shrink-0">
+                    <div class="w-10 h-10 rounded-full bg-zinc-800 overflow-hidden flex items-center justify-center">
+                        <i data-lucide="user" class="text-white"></i>
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <div class="flex items-center justify-between mb-1">
+                        <div class="flex items-center">
+                            <span class="font-bold text-sm">Paris_Vintage</span>
+                            <span class="verified-badge" title="Verified"><i data-lucide="check"
+                                    class="text-white w-2 h-2"></i></span>
+                            <span class="text-zinc-500 text-xs ml-2">2h</span>
+                        </div>
+                        <div class="bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 rounded-full text-[10px] font-bold">
+                            D-3 / 14:23:01
+                        </div>
+                    </div>
+                    <p class="text-sm leading-tight mb-3">
+                        Saint-Ouen 벼룩시장에서 발견한 1950년대 에르메스 빈티지 스카프. 컨디션 최상입니다. 이번 주말 직거래 가능합니다! 🇫🇷
+                    </p>
+                    <div class="rounded-xl overflow-hidden mb-3 border border-zinc-200 dark:border-zinc-800">
+                        <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=800&auto=format&fit=crop"
+                            alt="Vintage Item" class="w-full h-auto">
+                    </div>
+
+                    <button class="text-xs text-zinc-500 font-medium mb-4 flex items-center space-x-1">
+                        <i data-lucide="languages" class="w-3 h-3"></i>
+                        <span>See translation</span>
+                    </button>
+
+                    <div class="flex items-center space-x-5 text-zinc-500">
+                        <button class="flex items-center space-x-1"><i data-lucide="heart" class="w-5 h-5"></i></button>
+                        <button class="flex items-center space-x-1"><i data-lucide="message-circle"
+                                class="w-5 h-5"></i></button>
+                        <button class="flex items-center space-x-1"><i data-lucide="repeat"
+                                class="w-5 h-5"></i></button>
+                        <button class="flex items-center space-x-1"><i data-lucide="send" class="w-5 h-5"></i></button>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="py-4 border-b border-zinc-200 dark:border-zinc-800">
+            <div class="flex space-x-3">
+                <div class="flex-shrink-0">
+                    <div class="w-10 h-10 rounded-full bg-zinc-800 overflow-hidden flex items-center justify-center">
+                        <i data-lucide="user" class="text-white"></i>
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <div class="flex items-center justify-between mb-1">
+                        <div class="flex items-center">
+                            <span class="font-bold text-sm">Brocan_Hunter</span>
+                            <span class="verified-badge"><i data-lucide="check" class="text-white w-2 h-2"></i></span>
+                            <span class="text-zinc-500 text-xs ml-2">5h</span>
+                        </div>
+                        <div
+                            class="bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400 px-2 py-0.5 rounded-full text-[10px] font-bold">
+                            D-0 / 02:45:12
+                        </div>
+                    </div>
+                    <p class="text-sm leading-tight mb-3">
+                        리옹 빈티지 마켓 실시간 현황! 바우하우스 스타일 체어 4점 확보했습니다. 관심 있으신 분들 DM 주세요.
+                    </p>
+                    <div class="rounded-xl overflow-hidden mb-3 border border-zinc-200 dark:border-zinc-800">
+                        <img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?q=80&w=800&auto=format&fit=crop"
+                            alt="Vintage Item" class="w-full h-auto">
+                    </div>
+
+                    <button class="text-xs text-zinc-500 font-medium mb-4 flex items-center space-x-1">
+                        <i data-lucide="languages" class="w-3 h-3"></i>
+                        <span>See translation</span>
+                    </button>
+
+                    <div class="flex items-center space-x-5 text-zinc-500">
+                        <button class="flex items-center space-x-1"><i data-lucide="heart" class="w-5 h-5"></i></button>
+                        <button class="flex items-center space-x-1"><i data-lucide="message-circle"
+                                class="w-5 h-5"></i></button>
+                        <button class="flex items-center space-x-1"><i data-lucide="repeat"
+                                class="w-5 h-5"></i></button>
+                        <button class="flex items-center space-x-1"><i data-lucide="send" class="w-5 h-5"></i></button>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Navigation Divider Line -->
+    <div class="nav-divider"></div>
+
+    <!-- Floating Navigation -->
+    <nav id="bottom-nav"
+        class="fixed bottom-0 left-0 right-0 h-16 bg-black/80 dark:bg-black/80 backdrop-blur-md flex items-center justify-around px-4 z-40 border-t border-zinc-800">
+        <button class="p-2"><i data-lucide="home" class="w-7 h-7 text-white"></i></button>
+        <button class="p-2"><i data-lucide="search" class="w-7 h-7 text-white"></i></button>
+        <button class="flex items-center justify-center w-12 h-12 rounded-full border border-white/30 text-white">
+            <i data-lucide="plus" class="w-6 h-6"></i>
+        </button>
+        <button class="p-2"><i data-lucide="calendar" class="w-7 h-7 text-white"></i></button>
+        <button onclick="toggleDropdown(event)" class="p-2 flex items-center justify-center">
+            <div id="nav-profile-img-container"
+                class="w-7 h-7 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center overflow-hidden">
+                <i id="nav-profile-icon" data-lucide="user" class="w-5 h-5 text-white"></i>
+                <img id="nav-profile-img" src="" alt="Profile" class="w-full h-full object-cover hidden">
+            </div>
+        </button>
+    </nav>
+
+    <!-- Legal Modal (Simple Alert for Demo) -->
+    <script>
+        // Lucide Icons Initialization
+        lucide.createIcons();
+
+        // Theme Toggle Logic
+        function toggleTheme() {
+            const html = document.documentElement;
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                html.classList.add('light');
+            } else {
+                html.classList.remove('light');
+                html.classList.add('dark');
+            }
+        }
+
+        // Dropdown Logic
+        function toggleDropdown(event) {
+            event.stopPropagation();
+            const dropdown = document.getElementById('header-dropdown');
+            const isOpen = !dropdown.classList.contains('opacity-0');
+
+            if (isOpen) {
+                closeDropdown();
+            } else {
+                dropdown.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+            }
+        }
+
+        function closeDropdown() {
+            const dropdown = document.getElementById('header-dropdown');
+            dropdown.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            const dropdown = document.getElementById('header-dropdown');
+            if (!dropdown.contains(e.target)) {
+                closeDropdown();
+            }
+        });
+
+        function showLegal(title) {
+            if (title === 'Terms Info') {
+                alert("Terms Info:\n1. 본 앱은 중개 플랫폼으로서 거래의 직접적인 책임이 없음을 명시합니다.\n2. 향후 수익화를 위한 광고가 포함될 수 있습니다.");
+            } else {
+                alert(title + " content will be displayed here.");
+            }
+            closeDropdown();
+        }
+
+        // Scroll Logic for Bottom Nav
+        let lastScrollTop = 0;
+        const bottomNav = document.getElementById('bottom-nav');
+
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 50) {
+                // Scroll Down
+                bottomNav.classList.add('nav-hidden');
+            } else {
+                // Scroll Up
+                bottomNav.classList.remove('nav-hidden');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, false);
+    </script>
+
+    <!-- Firebase SDK & Logic -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            projectId: "brocan-web-app-777",
+            appId: "1:881033953442:web:80a2d4cdb641aab1d8d7fb",
+            storageBucket: "brocan-web-app-777.firebasestorage.app",
+            apiKey: "AIzaSyCh2hEwQ54Lqe2tmgsVlSFW05Rcwvw7uDU",
+            authDomain: "brocan-web-app-777.firebaseapp.com",
+            messagingSenderId: "881033953442",
+            projectNumber: "881033953442"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const provider = new GoogleAuthProvider();
+
+        // Auth Functions
+        window.loginWithGoogle = async () => {
+            try {
+                const result = await signInWithPopup(auth, provider);
+                const user = result.user;
+                console.log("Logged in:", user);
+
+                // Save/Update user profile in Firestore
+                await setDoc(doc(db, "users", user.uid), {
+                    displayName: user.displayName,
+                    email: user.email,
+                    photoURL: user.photoURL,
+                    lastLogin: serverTimestamp()
+                }, { merge: true });
+
+                closeDropdown();
+            } catch (error) {
+                console.error("Login Error:", error);
+                alert("Login failed: " + error.message);
+            }
+        };
+
+        window.logout = async () => {
+            try {
+                await signOut(auth);
+                closeDropdown();
+            } catch (error) {
+                console.error("Logout Error:", error);
+            }
+        };
+
+        // Auth State Listener
+        onAuthStateChanged(auth, (user) => {
+            const userSection = document.getElementById('dropdown-user-section');
+            const loginBtn = document.getElementById('login-btn');
+            const logoutBtn = document.getElementById('logout-btn');
+            const navProfileImg = document.getElementById('nav-profile-img');
+            const navProfileIcon = document.getElementById('nav-profile-icon');
+
+            if (user) {
+                // Logged In
+                userSection.classList.remove('hidden');
+                loginBtn.classList.add('hidden');
+                logoutBtn.classList.remove('hidden');
+
+                document.getElementById('dropdown-user-photo').src = user.photoURL;
+                document.getElementById('dropdown-user-name').textContent = user.displayName;
+                document.getElementById('dropdown-user-email').textContent = user.email;
+
+                // Update Nav Icon
+                navProfileImg.src = user.photoURL;
+                navProfileImg.classList.remove('hidden');
+                navProfileIcon.classList.add('hidden');
+            } else {
+                // Logged Out
+                userSection.classList.add('hidden');
+                loginBtn.classList.remove('hidden');
+                logoutBtn.classList.add('hidden');
+
+                // Reset Nav Icon
+                navProfileImg.classList.add('hidden');
+                navProfileIcon.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+
 </html>
