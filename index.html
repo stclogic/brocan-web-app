@@ -205,97 +205,178 @@
     </header>
 
     <!-- Main Content Feed -->
-    <main class="pt-20 pb-24 px-4 w-full max-w-[440px] mx-auto">
+    <main id="main-content" class="pt-20 pb-24 px-4 w-full max-w-[440px] mx-auto min-h-screen">
 
-        <!-- Post 1 -->
-        <article class="py-4 border-b border-zinc-200 dark:border-zinc-800">
-            <div class="flex space-x-3">
-                <div class="flex-shrink-0">
-                    <div class="w-10 h-10 rounded-full bg-zinc-800 overflow-hidden flex items-center justify-center">
-                        <i data-lucide="user" class="text-white"></i>
-                    </div>
-                </div>
-                <div class="flex-1">
-                    <div class="flex items-center justify-between mb-1">
-                        <div class="flex items-center">
-                            <span class="font-bold text-sm">Paris_Vintage</span>
-                            <span class="verified-badge" title="Verified"><i data-lucide="check"
-                                    class="text-white w-2 h-2"></i></span>
-                            <span class="text-zinc-500 text-xs ml-2">2h</span>
-                        </div>
-                        <div class="bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 rounded-full text-[10px] font-bold">
-                            D-3 / 14:23:01
-                        </div>
-                    </div>
-                    <p class="text-sm leading-tight mb-3">
-                        Saint-Ouen 벼룩시장에서 발견한 1950년대 에르메스 빈티지 스카프. 컨디션 최상입니다. 이번 주말 직거래 가능합니다! 🇫🇷
-                    </p>
-                    <div class="rounded-xl overflow-hidden mb-3 border border-zinc-200 dark:border-zinc-800">
-                        <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=800&auto=format&fit=crop"
-                            alt="Vintage Item" class="w-full h-auto">
-                    </div>
-
-                    <button class="text-xs text-zinc-500 font-medium mb-4 flex items-center space-x-1">
-                        <i data-lucide="languages" class="w-3 h-3"></i>
-                        <span>See translation</span>
-                    </button>
-
-                    <div class="flex items-center space-x-5 text-zinc-500">
-                        <button class="flex items-center space-x-1"><i data-lucide="heart" class="w-5 h-5"></i></button>
-                        <button class="flex items-center space-x-1"><i data-lucide="message-circle"
-                                class="w-5 h-5"></i></button>
-                        <button class="flex items-center space-x-1"><i data-lucide="repeat"
-                                class="w-5 h-5"></i></button>
-                        <button class="flex items-center space-x-1"><i data-lucide="send" class="w-5 h-5"></i></button>
-                    </div>
-                </div>
-            </div>
-        </article>
-
-        <!-- Post 2 -->
-        <article class="py-4 border-b border-zinc-200 dark:border-zinc-800">
-            <div class="flex space-x-3">
-                <div class="flex-shrink-0">
-                    <div class="w-10 h-10 rounded-full bg-zinc-800 overflow-hidden flex items-center justify-center">
-                        <i data-lucide="user" class="text-white"></i>
-                    </div>
-                </div>
-                <div class="flex-1">
-                    <div class="flex items-center justify-between mb-1">
-                        <div class="flex items-center">
-                            <span class="font-bold text-sm">Brocan_Hunter</span>
-                            <span class="verified-badge"><i data-lucide="check" class="text-white w-2 h-2"></i></span>
-                            <span class="text-zinc-500 text-xs ml-2">5h</span>
-                        </div>
+        <!-- Home View -->
+        <div id="view-home" class="spa-view">
+            <!-- Post 1 -->
+            <article class="py-4 border-b border-zinc-200 dark:border-zinc-800">
+                <div class="flex space-x-3">
+                    <div class="flex-shrink-0">
                         <div
-                            class="bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400 px-2 py-0.5 rounded-full text-[10px] font-bold">
-                            D-0 / 02:45:12
+                            class="w-10 h-10 rounded-full bg-zinc-800 overflow-hidden flex items-center justify-center">
+                            <i data-lucide="user" class="text-white"></i>
                         </div>
                     </div>
-                    <p class="text-sm leading-tight mb-3">
-                        리옹 빈티지 마켓 실시간 현황! 바우하우스 스타일 체어 4점 확보했습니다. 관심 있으신 분들 DM 주세요.
-                    </p>
-                    <div class="rounded-xl overflow-hidden mb-3 border border-zinc-200 dark:border-zinc-800">
-                        <img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?q=80&w=800&auto=format&fit=crop"
-                            alt="Vintage Item" class="w-full h-auto">
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-1">
+                            <div class="flex items-center">
+                                <span class="font-bold text-sm">Paris_Vintage</span>
+                                <span class="verified-badge" title="Verified"><i data-lucide="check"
+                                        class="text-white w-2 h-2"></i></span>
+                                <span class="text-zinc-500 text-xs ml-2">2h</span>
+                            </div>
+                            <div class="bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 rounded-full text-[10px] font-bold">
+                                D-3 / 14:23:01
+                            </div>
+                        </div>
+                        <p class="text-sm leading-tight mb-3">
+                            Saint-Ouen 벼룩시장에서 발견한 1950년대 에르메스 빈티지 스카프. 컨디션 최상입니다. 이번 주말 직거래 가능합니다! 🇫🇷
+                        </p>
+                        <div class="rounded-xl overflow-hidden mb-3 border border-zinc-200 dark:border-zinc-800">
+                            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=800&auto=format&fit=crop"
+                                alt="Vintage Item" class="w-full h-auto">
+                        </div>
+
+                        <button class="text-xs text-zinc-500 font-medium mb-4 flex items-center space-x-1">
+                            <i data-lucide="languages" class="w-3 h-3"></i>
+                            <span>See translation</span>
+                        </button>
+
+                        <div class="flex items-center space-x-5 text-zinc-500">
+                            <button class="flex items-center space-x-1"><i data-lucide="heart"
+                                    class="w-5 h-5"></i></button>
+                            <button class="flex items-center space-x-1"><i data-lucide="message-circle"
+                                    class="w-5 h-5"></i></button>
+                            <button class="flex items-center space-x-1"><i data-lucide="repeat"
+                                    class="w-5 h-5"></i></button>
+                            <button class="flex items-center space-x-1"><i data-lucide="send"
+                                    class="w-5 h-5"></i></button>
+                        </div>
                     </div>
+                </div>
+            </article>
 
-                    <button class="text-xs text-zinc-500 font-medium mb-4 flex items-center space-x-1">
-                        <i data-lucide="languages" class="w-3 h-3"></i>
-                        <span>See translation</span>
-                    </button>
+            <!-- Post 2 -->
+            <article class="py-4 border-b border-zinc-200 dark:border-zinc-800">
+                <div class="flex space-x-3">
+                    <div class="flex-shrink-0">
+                        <div
+                            class="w-10 h-10 rounded-full bg-zinc-800 overflow-hidden flex items-center justify-center">
+                            <i data-lucide="user" class="text-white"></i>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-1">
+                            <div class="flex items-center">
+                                <span class="font-bold text-sm">Brocan_Hunter</span>
+                                <span class="verified-badge"><i data-lucide="check"
+                                        class="text-white w-2 h-2"></i></span>
+                                <span class="text-zinc-500 text-xs ml-2">5h</span>
+                            </div>
+                            <div
+                                class="bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400 px-2 py-0.5 rounded-full text-[10px] font-bold">
+                                D-0 / 02:45:12
+                            </div>
+                        </div>
+                        <p class="text-sm leading-tight mb-3">
+                            리옹 빈티지 마켓 실시간 현황! 바우하우스 스타일 체어 4점 확보했습니다. 관심 있으신 분들 DM 주세요.
+                        </p>
+                        <div class="rounded-xl overflow-hidden mb-3 border border-zinc-200 dark:border-zinc-800">
+                            <img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?q=80&w=800&auto=format&fit=crop"
+                                alt="Vintage Item" class="w-full h-auto">
+                        </div>
 
-                    <div class="flex items-center space-x-5 text-zinc-500">
-                        <button class="flex items-center space-x-1"><i data-lucide="heart" class="w-5 h-5"></i></button>
-                        <button class="flex items-center space-x-1"><i data-lucide="message-circle"
-                                class="w-5 h-5"></i></button>
-                        <button class="flex items-center space-x-1"><i data-lucide="repeat"
-                                class="w-5 h-5"></i></button>
-                        <button class="flex items-center space-x-1"><i data-lucide="send" class="w-5 h-5"></i></button>
+                        <button class="text-xs text-zinc-500 font-medium mb-4 flex items-center space-x-1">
+                            <i data-lucide="languages" class="w-3 h-3"></i>
+                            <span>See translation</span>
+                        </button>
+
+                        <div class="flex items-center space-x-5 text-zinc-500">
+                            <button class="flex items-center space-x-1"><i data-lucide="heart"
+                                    class="w-5 h-5"></i></button>
+                            <button class="flex items-center space-x-1"><i data-lucide="message-circle"
+                                    class="w-5 h-5"></i></button>
+                            <button class="flex items-center space-x-1"><i data-lucide="repeat"
+                                    class="w-5 h-5"></i></button>
+                            <button class="flex items-center space-x-1"><i data-lucide="send"
+                                    class="w-5 h-5"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- Search View -->
+        <div id="view-search" class="spa-view hidden py-4">
+            <h2 class="text-2xl font-bold mb-4">Search Market</h2>
+            <div class="relative mb-6">
+                <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 w-5 h-5"></i>
+                <input type="text" placeholder="Search for items or markets..."
+                    class="w-full pl-12 pr-4 py-4 bg-zinc-100 dark:bg-zinc-800 rounded-2xl outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-600">
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <div
+                    class="bg-zinc-100 dark:bg-zinc-800 p-4 rounded-2xl flex flex-col items-center justify-center space-y-2 aspect-square">
+                    <i data-lucide="map-pin" class="w-8 h-8"></i>
+                    <span class="text-sm font-bold">Near Me</span>
+                </div>
+                <div
+                    class="bg-zinc-100 dark:bg-zinc-800 p-4 rounded-2xl flex flex-col items-center justify-center space-y-2 aspect-square">
+                    <i data-lucide="trending-up" class="w-8 h-8"></i>
+                    <span class="text-sm font-bold">Popular</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add View -->
+        <div id="view-add" class="spa-view hidden py-4">
+            <h2 class="text-2xl font-bold mb-6">New Post</h2>
+            <div class="space-y-6">
+                <div
+                    class="aspect-video bg-zinc-100 dark:bg-zinc-800 rounded-2xl flex flex-col items-center justify-center border-2 border-dashed border-zinc-200 dark:border-zinc-700 cursor-pointer hover:bg-zinc-200 dark:hover:bg-zinc-700/50 transition">
+                    <i data-lucide="image-plus" class="w-10 h-10 mb-2 text-zinc-500"></i>
+                    <span class="text-sm text-zinc-500 font-medium">Add Photos</span>
+                </div>
+                <textarea placeholder="Tell us about your discovery..."
+                    class="w-full min-h-[120px] p-4 bg-zinc-100 dark:bg-zinc-800 rounded-2xl outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-600 resize-none"></textarea>
+                <button
+                    class="w-full py-4 bg-zinc-900 dark:bg-white text-white dark:text-black font-bold rounded-2xl hover:opacity-90 transition active:scale-95">
+                    Post to Brocan
+                </button>
+            </div>
+        </div>
+
+        <!-- Calendar View -->
+        <div id="view-calendar" class="spa-view hidden py-4">
+            <h2 class="text-2xl font-bold mb-6">Market Schedule</h2>
+            <div class="space-y-4">
+                <div
+                    class="flex items-center space-x-4 p-4 bg-zinc-50 dark:bg-zinc-900 rounded-2xl border border-zinc-100 dark:border-zinc-800">
+                    <div
+                        class="flex-shrink-0 w-12 h-12 bg-zinc-900 dark:bg-white rounded-xl flex flex-col items-center justify-center text-white dark:text-black">
+                        <span class="text-[10px] uppercase font-bold">Feb</span>
+                        <span class="text-xl font-bold leading-none">15</span>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-sm">Marché aux Puces de Saint-Ouen</h3>
+                        <p class="text-xs text-zinc-500">9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+                <div
+                    class="flex items-center space-x-4 p-4 bg-zinc-50 dark:bg-zinc-900 rounded-2xl border border-zinc-100 dark:border-zinc-800">
+                    <div
+                        class="flex-shrink-0 w-12 h-12 bg-zinc-200 dark:bg-zinc-800 rounded-xl flex flex-col items-center justify-center">
+                        <span class="text-[10px] uppercase font-bold">Feb</span>
+                        <span class="text-xl font-bold leading-none">22</span>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-sm">Lyon Vintage Market</h3>
+                        <p class="text-xs text-zinc-500">10:00 AM - 5:00 PM</p>
                     </div>
                 </div>
             </div>
-        </article>
+        </div>
 
     </main>
 
@@ -305,12 +386,23 @@
     <!-- Floating Navigation -->
     <nav id="bottom-nav"
         class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[440px] h-16 bg-black/80 dark:bg-black/80 backdrop-blur-md flex items-center justify-around px-4 z-40 border-t border-zinc-800">
-        <button class="p-2"><i data-lucide="home" class="w-7 h-7 text-white"></i></button>
-        <button class="p-2"><i data-lucide="search" class="w-7 h-7 text-white"></i></button>
-        <button class="flex items-center justify-center w-12 h-12 rounded-full border border-white/30 text-white">
+        <button onclick="switchView('home')" class="nav-btn p-2 text-white opacity-100 transition-opacity"
+            data-view="home">
+            <i data-lucide="home" class="w-7 h-7"></i>
+        </button>
+        <button onclick="switchView('search')" class="nav-btn p-2 text-white opacity-40 transition-opacity"
+            data-view="search">
+            <i data-lucide="search" class="w-7 h-7"></i>
+        </button>
+        <button onclick="switchView('add')"
+            class="nav-btn flex items-center justify-center w-12 h-12 rounded-full border border-white/30 text-white active:scale-95 transition-transform"
+            data-view="add">
             <i data-lucide="plus" class="w-6 h-6"></i>
         </button>
-        <button class="p-2"><i data-lucide="calendar" class="w-7 h-7 text-white"></i></button>
+        <button onclick="switchView('calendar')" class="nav-btn p-2 text-white opacity-40 transition-opacity"
+            data-view="calendar">
+            <i data-lucide="calendar" class="w-7 h-7"></i>
+        </button>
         <button onclick="toggleDropdown(event)" class="p-2 flex items-center justify-center">
             <div id="nav-profile-img-container"
                 class="w-8 h-8 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center overflow-hidden transition-transform active:scale-90">
@@ -387,6 +479,38 @@
             }
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         }, false);
+
+        // SPA View Switcher
+        function switchView(viewId) {
+            // Hide all views
+            document.querySelectorAll('.spa-view').forEach(view => {
+                view.classList.add('hidden');
+            });
+
+            // Show selected view
+            const targetView = document.getElementById('view-' + viewId);
+            if (targetView) {
+                targetView.classList.remove('hidden');
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Update nav buttons opacity
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                if (btn.getAttribute('data-view') === viewId) {
+                    btn.classList.remove('opacity-40');
+                    btn.classList.add('opacity-100');
+                    if (viewId === 'add') btn.classList.add('bg-white/20');
+                    else btn.classList.remove('bg-white/20');
+                } else {
+                    btn.classList.add('opacity-40');
+                    btn.classList.remove('opacity-100', 'bg-white/20');
+                }
+            });
+
+            // Re-create icons for new views if needed
+            lucide.createIcons();
+        }
     </script>
 
     <!-- Firebase SDK & Logic -->
