@@ -350,29 +350,130 @@
         <!-- Calendar View -->
         <div id="view-calendar" class="spa-view hidden py-4">
             <h2 class="text-2xl font-bold mb-6">Market Schedule</h2>
-            <div class="space-y-4">
-                <div
-                    class="flex items-center space-x-4 p-4 bg-zinc-50 dark:bg-zinc-900 rounded-2xl border border-zinc-100 dark:border-zinc-800">
+
+            <!-- Paris Markets -->
+            <div class="mb-8">
+                <div class="flex items-center gap-2 mb-4">
+                    <span
+                        class="px-2 py-0.5 bg-zinc-800 text-zinc-400 text-[10px] font-bold uppercase tracking-wider rounded">Paris</span>
+                    <div class="h-[1px] flex-1 bg-zinc-800"></div>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Saint-Ouen -->
                     <div
-                        class="flex-shrink-0 w-12 h-12 bg-zinc-900 dark:bg-white rounded-xl flex flex-col items-center justify-center text-white dark:text-black">
-                        <span class="text-[10px] uppercase font-bold">Feb</span>
-                        <span class="text-xl font-bold leading-none">15</span>
+                        class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-4 active:scale-[0.98] transition-transform">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">Puces de Saint-Ouen</h3>
+                            <span class="text-xs text-zinc-500">Sat, Sun, Mon</span>
+                        </div>
+                        <p class="text-zinc-400 text-sm mb-3">The world's largest antique market with over 2,500 stalls
+                            across 7 hectares.</p>
+                        <div class="flex items-center gap-2 text-xs text-zinc-500">
+                            <i data-lucide="map-pin" class="w-3 h-3"></i>
+                            <span>Porte de Clignancourt, Paris</span>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="font-bold text-sm">Marché aux Puces de Saint-Ouen</h3>
-                        <p class="text-xs text-zinc-500">9:00 AM - 6:00 PM</p>
+
+                    <!-- Vanves -->
+                    <div
+                        class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-4 active:scale-[0.98] transition-transform">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">Puces de Vanves</h3>
+                            <span class="text-xs text-zinc-500">Sat, Sun</span>
+                        </div>
+                        <p class="text-zinc-400 text-sm mb-3">A friendly, intimate outdoor market perfect for finding
+                            small treasures and unique decor.</p>
+                        <div class="flex items-center gap-2 text-xs text-zinc-500">
+                            <i data-lucide="map-pin" class="w-3 h-3"></i>
+                            <span>Porte de Vanves, Paris</span>
+                        </div>
+                    </div>
+
+                    <!-- Montreuil -->
+                    <div
+                        class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-4 active:scale-[0.98] transition-transform">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">Puces de Montreuil</h3>
+                            <span class="text-xs text-zinc-500">Sat, Sun, Mon</span>
+                        </div>
+                        <p class="text-zinc-400 text-sm mb-3">Known for vintage clothing, spare parts, and a more
+                            authentic, local atmosphere.</p>
+                        <div class="flex items-center gap-2 text-xs text-zinc-500">
+                            <i data-lucide="map-pin" class="w-3 h-3"></i>
+                            <span>Porte de Montreuil, Paris</span>
+                        </div>
                     </div>
                 </div>
-                <div
-                    class="flex items-center space-x-4 p-4 bg-zinc-50 dark:bg-zinc-900 rounded-2xl border border-zinc-100 dark:border-zinc-800">
+            </div>
+
+            <!-- Regional Markets -->
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <span
+                        class="px-2 py-0.5 bg-zinc-800 text-zinc-400 text-[10px] font-bold uppercase tracking-wider rounded">Regions</span>
+                    <div class="h-[1px] flex-1 bg-zinc-800"></div>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Lille -->
                     <div
-                        class="flex-shrink-0 w-12 h-12 bg-zinc-200 dark:bg-zinc-800 rounded-xl flex flex-col items-center justify-center">
-                        <span class="text-[10px] uppercase font-bold">Feb</span>
-                        <span class="text-xl font-bold leading-none">22</span>
+                        class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-4 active:scale-[0.98] transition-transform">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">Braderie de Lille</h3>
+                            <span class="text-xs text-zinc-500">Sept (Annual)</span>
+                        </div>
+                        <p class="text-zinc-400 text-sm mb-3">Europe's largest flea market, attracting 2 million
+                            visitors over a festive weekend.</p>
+                        <div class="flex items-center gap-2 text-xs text-zinc-500">
+                            <i data-lucide="map-pin" class="w-3 h-3"></i>
+                            <span>Lille, North France</span>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="font-bold text-sm">Lyon Vintage Market</h3>
-                        <p class="text-xs text-zinc-500">10:00 AM - 5:00 PM</p>
+
+                    <!-- Lyon -->
+                    <div
+                        class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-4 active:scale-[0.98] transition-transform">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">Puces du Canal</h3>
+                            <span class="text-xs text-zinc-500">Thu, Sat, Sun</span>
+                        </div>
+                        <p class="text-zinc-400 text-sm mb-3">The second largest market in France, offering a
+                            high-quality selection of industrial design.</p>
+                        <div class="flex items-center gap-2 text-xs text-zinc-500">
+                            <i data-lucide="map-pin" class="w-3 h-3"></i>
+                            <span>Villeurbanne, Lyon</span>
+                        </div>
+                    </div>
+
+                    <!-- Isle-sur-la-Sorgue -->
+                    <div
+                        class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-4 active:scale-[0.98] transition-transform">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">L'Isle-sur-la-Sorgue</h3>
+                            <span class="text-xs text-zinc-500">Sun & Easter</span>
+                        </div>
+                        <p class="text-zinc-400 text-sm mb-3">Famous Provencal town acting as an international hub for
+                            high-end antiques.</p>
+                        <div class="flex items-center gap-2 text-xs text-zinc-500">
+                            <i data-lucide="map-pin" class="w-3 h-3"></i>
+                            <span>Vaucluse, Provence</span>
+                        </div>
+                    </div>
+
+                    <!-- Nice -->
+                    <div
+                        class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-4 active:scale-[0.98] transition-transform">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">Cours Saleya</h3>
+                            <span class="text-xs text-zinc-500">Mondays</span>
+                        </div>
+                        <p class="text-zinc-400 text-sm mb-3">A picturesque market in the heart of Old Nice,
+                            specializing in collectibles and jewelry.</p>
+                        <div class="flex items-center gap-2 text-xs text-zinc-500">
+                            <i data-lucide="map-pin" class="w-3 h-3"></i>
+                            <span>Nice, French Riviera</span>
+                        </div>
                     </div>
                 </div>
             </div>
