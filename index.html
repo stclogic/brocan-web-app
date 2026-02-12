@@ -128,8 +128,27 @@
                 </div>
             </div>
             <div class="p-2 flex flex-col">
+                <!-- Email Login Section -->
+                <div id="email-auth-section" class="flex flex-col space-y-2 mb-3">
+                    <input type="email" id="email-input" placeholder="Email"
+                        class="px-4 py-2 text-sm bg-zinc-100 dark:bg-zinc-800 border-none rounded-xl outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-600 transition">
+                    <input type="password" id="password-input" placeholder="Password"
+                        class="px-4 py-2 text-sm bg-zinc-100 dark:bg-zinc-800 border-none rounded-xl outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-600 transition">
+                    <button id="email-login-btn" onclick="loginWithEmail()"
+                        class="w-full py-3 text-sm font-bold text-white bg-zinc-900 dark:bg-white dark:text-black rounded-xl hover:opacity-90 transition">
+                        Sign In / Register
+                    </button>
+                </div>
+
+                <div class="relative flex items-center py-2 mb-2">
+                    <div class="flex-grow border-t border-zinc-100 dark:border-zinc-800"></div>
+                    <span
+                        class="flex-shrink mx-4 text-[10px] text-zinc-400 uppercase tracking-widest font-bold">OR</span>
+                    <div class="flex-grow border-t border-zinc-100 dark:border-zinc-800"></div>
+                </div>
+
                 <button id="login-btn" onclick="loginWithGoogle()"
-                    class="px-4 py-3 text-sm font-bold text-brand-black bg-zinc-100 hover:bg-zinc-200 rounded-xl transition mb-2 flex items-center justify-center space-x-2">
+                    class="px-4 py-3 text-sm font-bold text-brand-black bg-zinc-100 dark:bg-zinc-800 dark:text-white hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded-xl transition mb-2 flex items-center justify-center space-x-2">
                     <i data-lucide="log-in" class="w-4 h-4"></i>
                     <span>Login with Google</span>
                 </button>
@@ -373,7 +392,7 @@
     <!-- Firebase SDK & Logic -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
         import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
         const firebaseConfig = {
@@ -396,22 +415,60 @@
             try {
                 const result = await signInWithPopup(auth, provider);
                 const user = result.user;
-                console.log("Logged in:", user);
-
-                // Save/Update user profile in Firestore
-                await setDoc(doc(db, "users", user.uid), {
-                    displayName: user.displayName,
-                    email: user.email,
-                    photoURL: user.photoURL,
-                    lastLogin: serverTimestamp()
-                }, { merge: true });
-
+                console.log("Logged in Google:", user);
+                await updateUserProfile(user);
                 closeDropdown();
             } catch (error) {
                 console.error("Login Error:", error);
                 alert("Login failed: " + error.message);
             }
         };
+
+        window.loginWithEmail = async () => {
+            const email = document.getElementById('email-input').value;
+            const password = document.getElementById('password-input').value;
+
+            if (!email || !password) {
+                alert("Please enter email and password");
+                return;
+            }
+
+            try {
+                // Try to sign in
+                const result = await signInWithEmailAndPassword(auth, email, password);
+                console.log("Logged in Email:", result.user);
+                closeDropdown();
+            } catch (error) {
+                // If user doesn't exist, try to register
+                if (error.code === 'auth/user-not-found' || error.code === 'auth/invalid-credential') {
+                    try {
+                        const result = await createUserWithEmailAndPassword(auth, email, password);
+                        console.log("Registered Email:", result.user);
+                        await updateUserProfile(result.user);
+                        closeDropdown();
+                    } catch (regError) {
+                        console.error("Registration Error:", regError);
+                        alert("Sign Up failed: " + regError.message);
+                    }
+                } else {
+                    console.error("Login Error:", error);
+                    alert("Login failed: " + error.message);
+                }
+            }
+        };
+
+        async function updateUserProfile(user) {
+            try {
+                await setDoc(doc(db, "users", user.uid), {
+                    displayName: user.displayName || user.email.split('@')[0],
+                    email: user.email,
+                    photoURL: user.photoURL || `https://ui-avatars.com/api/?name=${user.email}&background=random`,
+                    lastLogin: serverTimestamp()
+                }, { merge: true });
+            } catch (error) {
+                console.error("Error updating profile:", error);
+            }
+        }
 
         window.logout = async () => {
             try {
@@ -426,28 +483,34 @@
         onAuthStateChanged(auth, (user) => {
             const userSection = document.getElementById('dropdown-user-section');
             const loginBtn = document.getElementById('login-btn');
+            const emailAuthSection = document.getElementById('email-auth-section');
             const logoutBtn = document.getElementById('logout-btn');
             const navProfileImg = document.getElementById('nav-profile-img');
             const navProfileIcon = document.getElementById('nav-profile-icon');
+            const separatorLine = emailAuthSection.nextElementSibling;
 
             if (user) {
                 // Logged In
                 userSection.classList.remove('hidden');
                 loginBtn.classList.add('hidden');
+                emailAuthSection.classList.add('hidden');
+                if (separatorLine) separatorLine.classList.add('hidden');
                 logoutBtn.classList.remove('hidden');
 
-                document.getElementById('dropdown-user-photo').src = user.photoURL;
-                document.getElementById('dropdown-user-name').textContent = user.displayName;
+                document.getElementById('dropdown-user-photo').src = user.photoURL || `https://ui-avatars.com/api/?name=${user.email}&background=random`;
+                document.getElementById('dropdown-user-name').textContent = user.displayName || user.email.split('@')[0];
                 document.getElementById('dropdown-user-email').textContent = user.email;
 
                 // Update Nav Icon
-                navProfileImg.src = user.photoURL;
+                navProfileImg.src = user.photoURL || `https://ui-avatars.com/api/?name=${user.email}&background=random`;
                 navProfileImg.classList.remove('hidden');
                 navProfileIcon.classList.add('hidden');
             } else {
                 // Logged Out
                 userSection.classList.add('hidden');
                 loginBtn.classList.remove('hidden');
+                emailAuthSection.classList.remove('hidden');
+                if (separatorLine) separatorLine.classList.remove('hidden');
                 logoutBtn.classList.add('hidden');
 
                 // Reset Nav Icon
